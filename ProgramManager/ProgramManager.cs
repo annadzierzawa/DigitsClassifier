@@ -44,8 +44,7 @@ namespace DigitsClassifier
                     }
                 }
                 avg = (avg * (iterator / (iterator + 1))) + ((guess == correct) ? (1 / iterator) : 0.0);
-                Console.WriteLine("Correct: " + correct + " Correct? " + (guess == correct ? "Yes " : "No ") + " %Correct: " + Math.Round(avg, 10).ToString().PadRight(12)  /* + " Certainty " + Math.Round(certainty, 10)*/ );
-                ////nn.Dispose();
+                Console.WriteLine("Guess: " + guess + " Correct: " + correct + " Correct? " + (guess == correct ? "Yes " : "No ").PadRight(4) + " %Correct: " + Math.Round(avg, 10).ToString().PadRight(12));
             }
         }
         public static void Training()
@@ -67,11 +66,10 @@ namespace DigitsClassifier
                 //Syncronously descend
                 foreach (Network nn in ntw)
                 {
-                    nn.Descend();
-                  //nn.Dispose();
+                    nn.Descent();
                 }
                 //Updating the weights with the avg gradients
-                Network.Descend(batchsize);
+                Network.Descent(batchsize);
                 UserValidation();
             }
             //Save weights and biases
@@ -110,16 +108,9 @@ namespace DigitsClassifier
             avgerror = ((iterator / (iterator + 1)) * avgerror) + ((1 / iterator) * error);
             avg = (avg * (iterator / (iterator + 1))) + ((guess == correct) ? (1 / iterator) : 0.0);
 
-            //Some safety code which is currently disabled
-            //if (avgerror > maxavg && iterator > 300) { maxavg = avgerror; }
-            //if (avgerror > maxavg * 10 && iterator > 300) { finished = true; }
-
             //Print various things to the console for verification that things are nominal
-            Console.WriteLine("Correct: " + correct + "\t" + " Guess: " + guess + "\t" + " Correct? " + (guess == correct ? "Yes " : "No ").ToString().PadRight(3) + "\t" /*+ "Certainty: " + Math.Round(certainty, 5).ToString().PadRight(7)*/
-                + " %Correct: " + "\t" + Math.Round(avg, 5).ToString().PadRight(7) /*+ " Avg error: " + Math.Round(avgerror, 5).ToString().PadRight(8) + " Avg gradient: " + Network.AvgGradient, 15*/);
+            Console.WriteLine("Correct: " + correct + "\t" + " Guess: " + guess + "\t" + " Correct? " + (guess == correct ? "Yes " : "No ").ToString().PadRight(3) + "\t"  + " %Correct: " + "\t" + Math.Round(avg, 5).ToString().PadRight(7));
 
-            //Dispose of the neural network (may not be necessary)
-           // nn.Dispose();
             //Reset the console data every few iterations to ensure up to date numbers
             if (iterator > 1000)
             { 

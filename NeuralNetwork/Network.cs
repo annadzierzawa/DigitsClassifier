@@ -66,7 +66,7 @@ namespace DigitsClassifier.NeuralNetwork
        
         public double[] OutputValues = new double[OutputCount];
         
-        public static void Descend(int batchsize)
+        public static void Descent(int batchsize)
         {
             
             AvgGradient = 0;                //Reset avg gradient
@@ -127,7 +127,7 @@ namespace DigitsClassifier.NeuralNetwork
         }
         //Stochastic descent (all code below is done according to formulas)
         //This adds each NN's gradients to the avg
-        public void Descend()
+        public void Descent()
         {
             //Input
             for (int i = 0; i < InputCount; i++)
@@ -395,6 +395,5 @@ namespace DigitsClassifier.NeuralNetwork
                 }
             }
         }
-
     }
 }

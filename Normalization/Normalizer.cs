@@ -98,41 +98,5 @@ namespace DigitsClassifier.Normalization
             }
             return array;
         }
-        
-        public static double[,,] Normalize(double[,,] array, bool image, int depth, int count1, int count2)
-        {
-            double[] workingvalues = new double[depth * count1 * count2];
-
-            int iterator = 0;
-
-            for (int i = 0; i < depth; i++)
-            {
-                for (int j = 0; j < count1; j++)
-                {
-                    for (int k = 0; k < count2; k++)
-                    {
-                        workingvalues[iterator] = array[i, j, k];
-                        iterator++;
-                    }
-                }
-            }
-
-            workingvalues = Normalize(workingvalues, image);
-
-            iterator = 0;
-
-            for (int i = 0; i < depth; i++)
-            {
-                for (int j = 0; j < count1; j++)
-                {
-                    for (int k = 0; k < count2; k++)
-                    {
-                        array[i, j, k] = workingvalues[iterator];
-                        iterator++;
-                    }
-                }
-            }
-            return array;
-        }
     }
 }

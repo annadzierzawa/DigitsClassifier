@@ -8,10 +8,11 @@ namespace DigitsClassifier
 {
     class Program
     {
-        public static bool trainMode = true;
-        //public static bool trainMode = false;
+        /*public static bool trainMode = true;*/ // true training, false testing
+        public static bool trainMode = false;
         static void Main(string[] args)
-        {                                
+        {
+            //ProgramManager.reset();                     
             NetworkParametersHandler.ReadWeightBias();             //Reading network parameters form file
             if (trainMode)
             {
@@ -24,6 +25,7 @@ namespace DigitsClassifier
 
            
             Console.WriteLine("Finished");
+            Console.ReadKey();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace DigitsClassifier
     public class NetworkParametersHandler
     {
 
-        const string Path = @"D:\Semestr 4\Systemy sztucznej inteligencji\REPOZYTORIUM\Digits Classifier\spagghetti\DigitRecog-master\DataBackup.txt";
+        const string Path = @"D:\Semestr 4\Systemy sztucznej inteligencji\REPOZYTORIUM\Digits Classifier\DC\DigitsClassifier\bin\Debug\DataBackup.txt";
         static bool Running = false;
         
         /*Reading parameters of network to file*/
