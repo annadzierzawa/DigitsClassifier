@@ -358,7 +358,6 @@ namespace DigitsClassifier.NeuralNetwork
             {
                 for (int j = 0; j < (Resolution * Resolution); j++)
                 {
-                    //Lecun initialization (draw a rand num from neg limit to pos limit where lim is the sqrt term)
                     InputWeights[i, j] = (r.NextDouble() > 0.5 ? -1 : 1) * r.NextDouble() * Math.Sqrt(3.0 / (double)(Resolution * Resolution));
                 }
             }
@@ -371,7 +370,6 @@ namespace DigitsClassifier.NeuralNetwork
                     {
                         for (int j = 0; j < InputCount; j++)
                         {
-                            //Lecun initialization (draw a rand num from neg limit to pos limit where lim is the sqrt term)
                             FirstHiddenWeights[i, j] = (r.NextDouble() > 0.5 ? -1 : 1) * r.NextDouble() * Math.Sqrt(3.0 / (InputCount * InputCount));
                         }
                     }
@@ -379,7 +377,6 @@ namespace DigitsClassifier.NeuralNetwork
                     {
                         for (int j = 0; j < HiddenCount; j++)
                         {
-                            //Lecun initialization (draw a rand num from neg limit to pos limit where lim is the sqrt term)
                             HiddenWeights[l - 1, i, j] = (r.NextDouble() > 0.5 ? -1 : 1) * r.NextDouble() * Math.Sqrt(3.0 / (HiddenCount * HiddenCount));
                         }
                     }
@@ -390,7 +387,6 @@ namespace DigitsClassifier.NeuralNetwork
             {
                 for (int j = 0; j < HiddenCount; j++)
                 {
-                    //Lecun initialization (draw a rand num from neg limit to pos limit where lim is the sqrt term)
                     OutputWeights[i, j] = (r.NextDouble() > 0.5 ? -1 : 1) * r.NextDouble() * Math.Sqrt(3.0 / (double)(HiddenCount * HiddenCount));
                 }
             }
